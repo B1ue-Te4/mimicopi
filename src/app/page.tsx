@@ -1,11 +1,13 @@
 'use client'
 
 import YouTube from 'react-youtube'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { RewindIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Input, Button } from '@/components/ui/button'
 
 export default function Page() {
+  const [videoId, setVideoId] = useState(null)
+
   const playerRef = useRef<any>(null)
 
   const onReady = (event: any) => {
@@ -19,6 +21,7 @@ export default function Page() {
 
   return (
     <div className="space-y-4">
+      <input type="text"></input>
       <YouTube videoId="ScMzIvxBSi4" onReady={onReady} />
       <Button onClick={rewind}>
         <RewindIcon className="mr-2 h-4 w-4" />
