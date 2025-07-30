@@ -52,7 +52,8 @@ export default function Page() {
       />
       <YouTube videoId={videoId} onReady={onReady} />
       <Button onClick={rewind}>
-      <RewindIcon />5sec</Button>
+        <RewindIcon />5sec
+      </Button>
     </main>
   )
 }
