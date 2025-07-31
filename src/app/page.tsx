@@ -11,14 +11,13 @@ export default function Page() {
   const [videoUrl, setVideoUrl] = useState('')
   const playerRef = useRef<any>(null)
 
-  const rewind = () => {
+  const seek = (sec: number) => {
     const currentTime = playerRef.current.currentTime
-    playerRef.current.currentTime = currentTime - 5
+    playerRef.current.currentTime = currentTime + sec
   }
 
-  const fastforward = () => {
-    const currentTime = playerRef.current.currentTime
-    playerRef.current.currentTime = currentTime + 5
+  const playlate = (late: number) => {
+    playerRef.current.playbackRate = late
   }
 
   return (
@@ -31,13 +30,26 @@ export default function Page() {
         onChange={(e) => setVideoUrl(e.target.value)}
       />
       {videoUrl && <ReactPlayer src={videoUrl} ref={playerRef} controls />}
-      <div className="inline-flex items-center gap-1">
-        <Button onClick={rewind}>
-          <RewindIcon />5sec
-        </Button>
-        <Button onClick={fastforward}>
-          5sec<FastForwardIcon />
-        </Button>
+      <div className="inline-flex items-center gap-2">
+        <span className="inline-flex items-center">
+          <Button onClick={() => seek(-3)}>
+            <RewindIcon />3sec
+          </Button>
+          <Button onClick={() => seek(3)}>
+            3sec<FastForwardIcon />
+          </Button>
+        </span>
+        <span className="inline-flex items-center">
+          <Button onClick={() => playlate(0.5)}>
+            0.5x
+          </Button>
+          <Button onClick={() => playlate(0.75)}>
+            0.75x
+          </Button>
+          <Button onClick={() => playlate(1)}>
+            1.0x
+          </Button>
+        </span>
       </div>
     </main>
   )
