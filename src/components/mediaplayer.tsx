@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input'
 export default function MediaPlayer() {
 
   const [videoUrl, setVideoUrl] = useState('https://youtu.be/mA-dRWAbqFE?si=5esZ-x8OC-1e2kol')
-  const playerRef = useRef<any>(null)
+  const playerRef = useRef<ReactPlayer>(null)
 
   const seek = (sec: number) => {
     const currentTime = playerRef.current.currentTime
