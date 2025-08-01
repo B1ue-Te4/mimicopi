@@ -5,7 +5,7 @@ import abcjs from 'abcjs'
 import { Textarea } from '@/components/ui/textarea'
 
 export default function AbcEditor() {
-  const [abcCode, setAbcCode] = useState(`X:1\nT:Sample\nM:4/4\nK:C\nC D E F | G A B c`)
+  const [abcCode, setAbcCode] = useState(`X:1\nT:Sample\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c`)
   const paperRef = useRef<HTMLDivElement>(null)
 
   const setRef = (elm: HTMLDivElement) => {
