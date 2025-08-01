@@ -8,22 +8,21 @@ import { Input } from '@/components/ui/input'
 
 export default function MediaPlayer() {
 
-  type PlayerHandle = {
-    currentTime: number
-    playbackRate: number
-  }
+  const playerRef = useRef<HTMLVideoElement>(null)
 
-  const playerRef = useRef<PlayerHandle>(null)
+  const getPlayer = () => {
+    if (!playerRef.current) throw new Error('Player not ready')
+    return playerRef.current
+  }
 
   const [videoUrl, setVideoUrl] = useState('https://youtu.be/mA-dRWAbqFE?si=5esZ-x8OC-1e2kol')
 
   const seek = (sec: number) => {
-    const currentTime = playerRef.current.currentTime
-    playerRef.current.currentTime = currentTime + sec
+    getPlayer().currentTime += sec
   }
 
   const playlate = (late: number) => {
-    playerRef.current.playbackRate = late
+    getPlayer().playbackRate = late
   }
 
   return (
