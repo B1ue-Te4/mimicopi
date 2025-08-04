@@ -2,6 +2,14 @@
 
 import { useRef, useState, useEffect } from 'react'
 import abcjs from 'abcjs'
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { Textarea } from '@/components/ui/textarea'
 
 console.log('AbcEditor loaded O')
@@ -24,14 +32,26 @@ export default function AbcEditor() {
   }
 
   return (
-    <div>
-      <Textarea
-        value={abcCode}
-        onChange={handleChange}
-        placeholder="AbcNotation"
-        className="resize"
-      />
-      <div ref={paperRef} />
-    </div>
+    <Carousel className="w-full flex items-center">
+      <CarouselPrevious className="static" />
+      <CarouselContent className="flex-1">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index}>
+            <Card>
+              <CardContent>
+                <Textarea
+                  value={abcCode}
+                  onChange={handleChange}
+                  placeholder="AbcNotation"
+                  className="resize"
+                />
+                <div ref={paperRef} />
+              </CardContent>
+            </Card>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselNext className="static" />
+    </Carousel>
   )
 }
