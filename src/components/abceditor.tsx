@@ -15,7 +15,7 @@ export default function AbcEditor() {
   const [abcCode, setAbcCode] = useState(`X:1\nT:Scarborough Fair\nM:3/4\nL:1/4\nK:C\n || D2 D | A2 A | E3/2　F/2 E | D5/2 |`)
 
   useEffect (() => {
-    abcjs.renderAbc(paperRef.current!,abcCode)
+    abcjs.renderAbc(paperRef.current!,abcCode,{ responsive: "resize" })
   }, [abcCode])
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -31,10 +31,7 @@ export default function AbcEditor() {
         placeholder="AbcNotation"
         className="resize"
       />
-      <div 
-        ref={paperRef} 
-        className="overflow-x-auto"
-      />
+      <div ref={paperRef} />
     </div>
   )
 }
