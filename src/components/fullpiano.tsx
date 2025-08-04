@@ -1,10 +1,12 @@
 'use client'
 
-import { SplendidGrandPiano } from "smplr";
+import { SplendidGrandPiano } from "smplr"
+import { useRef, useEffect } from 'react'
 
-const piano = new SplendidGrandPiano(new AudioContext());
+console.log('FullPiano loaded O')
 
 const WHITE_KEYS = ['C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4']
+
 const BLACK_KEYS = [
   { note: 'Db4', position: 0 },
   { note: 'Eb4', position: 1 },
@@ -15,13 +17,22 @@ const BLACK_KEYS = [
 
 export default function FullPiano() {
 
+  console.log('FullPiano loaded')
+
+  const pianoRef = useRef<SplendidGrandPiano>(null)
+
+  useEffect (() => {
+    const audioContext = new AudioContext();
+    pianoRef.current = new SplendidGrandPiano(audioContext)
+  },[])
+
   const handleClick = (note: string) => {
-    const stopNote = piano.start({ note: note });
+    const stopNote = pianoRef.current!.start({ note: note });
     setTimeout(() => stopNote(), 300)
   }
 
   return (
-    <div className="relative w-fit p-4">
+    <div className="relative w-fit">
       <div className="flex">
         {WHITE_KEYS.map((note) => (
           <button

@@ -1,26 +1,26 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import abcjs from 'abcjs'
 import { Textarea } from '@/components/ui/textarea'
 
+console.log('AbcEditor loaded O')
+
 export default function AbcEditor() {
-  const [abcCode, setAbcCode] = useState(`X:1\nT:Sample\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c`)
+
+  console.log('AbcEditor loaded')
+
   const paperRef = useRef<HTMLDivElement>(null)
 
-  const setRef = (elm: HTMLDivElement) => {
-    if (elm && !paperRef.current) {
-      paperRef.current = elm
-      abcjs.renderAbc(elm, abcCode)
-    }
-  }
+  const [abcCode, setAbcCode] = useState(`X:1\nT:Sample\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c`)
+
+  useEffect (() => {
+    abcjs.renderAbc(paperRef.current!,abcCode)
+  }, [abcCode])
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newCode = e.target.value
     setAbcCode(newCode)
-    if (paperRef.current) {
-      abcjs.renderAbc(paperRef.current, newCode)
-    }
   }
 
   return (
@@ -31,7 +31,7 @@ export default function AbcEditor() {
         placeholder="AbcNotation"
         className="resize"
       />
-      <div ref={setRef} />
+      <div ref={paperRef} />
     </div>
   )
 }

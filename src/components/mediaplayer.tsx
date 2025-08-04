@@ -6,27 +6,26 @@ import { RewindIcon, FastForwardIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
+console.log('MediaPlayer loaded O')
+
 export default function MediaPlayer() {
 
-  const playerRef = useRef<HTMLVideoElement>(null)
+  console.log('MediaPlayer loaded')
 
-  const getPlayer = () => {
-    if (!playerRef.current) throw new Error('Player not ready')
-    return playerRef.current
-  }
+  const playerRef = useRef<HTMLVideoElement>(null)
 
   const [videoUrl, setVideoUrl] = useState('https://youtu.be/mA-dRWAbqFE?si=5esZ-x8OC-1e2kol')
 
   const seek = (sec: number) => {
-    getPlayer().currentTime += sec
+    playerRef.current!.currentTime += sec
   }
 
   const playlate = (late: number) => {
-    getPlayer().playbackRate = late
+    playerRef.current!.playbackRate = late
   }
 
   return (
-    <>
+    <div>
       <Input
         type="url"
         id="youtubeurl"
@@ -56,6 +55,6 @@ export default function MediaPlayer() {
           </Button>
         </span>
       </div>
-    </>
+    </div>
   )
 }
