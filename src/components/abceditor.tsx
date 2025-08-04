@@ -12,7 +12,7 @@ export default function AbcEditor() {
 
   const paperRef = useRef<HTMLDivElement>(null)
 
-  const [abcCode, setAbcCode] = useState(`X:1\nT:Sample\nM:4/4\nL:1/4\nK:C\nC D E F | G A B c`)
+  const [abcCode, setAbcCode] = useState(`X:1\nT:Scaborough Fair\nM:3/4\nL:1/4\nK:C\n || D2 D | A2 A | E3/2　F/2 E | D5/2 |`)
 
   useEffect (() => {
     abcjs.renderAbc(paperRef.current!,abcCode)

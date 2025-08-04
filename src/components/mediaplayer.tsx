@@ -14,7 +14,7 @@ export default function MediaPlayer() {
 
   const playerRef = useRef<HTMLVideoElement>(null)
 
-  const [videoUrl, setVideoUrl] = useState('https://youtu.be/mA-dRWAbqFE?si=5esZ-x8OC-1e2kol')
+  const [videoUrl, setVideoUrl] = useState('https://music.youtube.com/watch?v=Npjk5Y0jhEU')
 
   const seek = (sec: number) => {
     playerRef.current!.currentTime += sec
