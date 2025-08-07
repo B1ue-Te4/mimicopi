@@ -31,12 +31,12 @@ export default function FullPiano() {
 
   const activeNotes = useRef<{ [key: string]: () => void }>({})
 
-  const handleMouseDown = (note: string) => {
+  const handlePointerDown = (note: string) => {
     const stop = pianoRef.current!.start({ note })
     activeNotes.current[note] = stop
   }
 
-  const handleMouseUp = (note: string) => {
+  const handlePointerUp = (note: string) => {
     const stop = activeNotes.current[note]
     if (stop) {
       stop()
@@ -50,9 +50,9 @@ export default function FullPiano() {
         {WHITE_KEYS.map((note) => (
           <button
             key={note}
-            onMouseDown={() => handleMouseDown(note)}
-            onMouseUp={() => handleMouseUp(note)}
-            onMouseLeave={() => handleMouseUp(note)}
+            onPointerDown={() => handlePointerDown(note)}
+            onPointerUp={() => handlePointerUp(note)}
+            onPointerLeave={() => handlePointerUp(note)}
             className="relative w-12 h-40 bg-white border border-gray-700 active:bg-gray-300"
           >
           </button>
@@ -63,9 +63,9 @@ export default function FullPiano() {
         {BLACK_KEYS.map(({ note, position }) => (
           <button
             key={note}
-            onMouseDown={() => handleMouseDown(note)}
-            onMouseUp={() => handleMouseUp(note)}
-            onMouseLeave={() => handleMouseUp(note)}
+            onPointerDown={() => handlePointerDown(note)}
+            onPointerUp={() => handlePointerUp(note)}
+            onPointerLeave={() => handlePointerUp(note)}
             className="absolute w-8 h-24 bg-black z-10 active:bg-gray-700"
             style={{ left: `${position * 3.0}rem`, marginLeft: '2rem' }}
           />
