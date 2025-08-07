@@ -9,7 +9,7 @@ import AbcEditor from '@/components/abceditor'
 export default function Page() {
 
   const [title, setTitle] = useState('')
-  const [videoUrl, setVideoUrl] = useState('https://music.youtube.com/watch?v=Npjk5Y0jhEU')
+  const [videoUrl, setVideoUrl] = useState('https://youtu.be/HSacuzQKpxw?si=19teGSqwJhFLc7JW')
   const [abcCode, setAbcCode] = useState(`X:1\nT:Scarborough Fair\nM:3/4\nL:1/4\nK:C\n || D2 D | A2 A | E3/2 F/2 E | D5/2 |`)
 
   useEffect(() => {
