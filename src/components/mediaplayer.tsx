@@ -1,20 +1,22 @@
 'use client'
 
 import ReactPlayer from 'react-player'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { RewindIcon, FastForwardIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
-console.log('MediaPlayer loaded O')
-
-export default function MediaPlayer() {
+export default function MediaPlayer({
+  videoUrl,
+  setVideoUrl,
+}: {
+  videoUrl: string
+  setVideoUrl: (url: string) => void
+}) {
 
   console.log('MediaPlayer loaded')
 
   const playerRef = useRef<HTMLVideoElement>(null)
-
-  const [videoUrl, setVideoUrl] = useState('https://music.youtube.com/watch?v=Npjk5Y0jhEU')
 
   const seek = (sec: number) => {
     playerRef.current!.currentTime += sec
@@ -25,7 +27,7 @@ export default function MediaPlayer() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Input
         type="url"
         id="youtubeurl"
@@ -34,8 +36,8 @@ export default function MediaPlayer() {
         onChange={(e) => setVideoUrl(e.target.value)}
       />
       {videoUrl && <ReactPlayer src={videoUrl} ref={playerRef} controls />}
-      <div className="inline-flex items-center gap-2">
-        <span className="inline-flex items-center">
+      <div className="flex items-center gap-2">
+        <span className="flex items-center">
           <Button onClick={() => seek(-3)}>
             <RewindIcon />3sec
           </Button>
@@ -43,7 +45,7 @@ export default function MediaPlayer() {
             3sec<FastForwardIcon />
           </Button>
         </span>
-        <span className="inline-flex items-center">
+        <span className="flex items-center">
           <Button onClick={() => playlate(0.5)}>
             0.5x
           </Button>
