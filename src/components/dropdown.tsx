@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { SignInButton, SignOutButton } from '@/components/auth-buttons'
 
 export default function DropDown(
   {
@@ -85,11 +86,11 @@ export default function DropDown(
         </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem disabled>
-          Log In
+        <DropdownMenuItem>
+          <SignInButton />
         </DropdownMenuItem>
-        <DropdownMenuItem disabled>
-          Log Out
+        <DropdownMenuItem>
+          <SignOutButton />
         </DropdownMenuItem>
       </DropdownMenuContent>
       <input
