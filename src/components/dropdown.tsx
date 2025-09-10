@@ -1,7 +1,10 @@
 'use client'
 
+// メニューアイコン
 import { MenuIcon } from "lucide-react"
+// ボタンUI
 import { Button } from "@/components/ui/button"
+// ドロップダウンUI関連
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +14,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+// サインイン・サインアウトボタン
 import { SignInButton, SignOutButton } from '@/components/auth-buttons'
 
+// ドロップダウンメニューのコンポーネント
 export default function DropDown(
   {
   videoUrl,
@@ -26,6 +31,7 @@ export default function DropDown(
   setAbcCode: (v: string) => void
 }) {
 
+  // エクスポート処理
   const handleExport = () => {
     console.log('Exporting file...')
     const data = JSON.stringify({ videoUrl, abcCode }, null, 2)
@@ -41,6 +47,7 @@ export default function DropDown(
     URL.revokeObjectURL(url)
   }
 
+  // インポート処理
   const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log('Importing file...')
     const file = e.target.files?.[0]
@@ -63,6 +70,7 @@ export default function DropDown(
     reader.readAsText(file)
   }
 
+  // メニューのUI
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -93,6 +101,7 @@ export default function DropDown(
           <SignOutButton />
         </DropdownMenuItem>
       </DropdownMenuContent>
+      {/* ファイルインポート用の隠しinput */}
       <input
         id="import-input"
         type="file"

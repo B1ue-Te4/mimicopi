@@ -1,7 +1,9 @@
 'use client'
 
+// サインイン・サインアウト用のアクション
 import { login, logout } from '@/app/actions/auth-actions'
 
+// サインインボタン
 export function SignInButton() {
   return (
     <form action={login}>
@@ -12,6 +14,7 @@ export function SignInButton() {
   )
 }
 
+// サインアウトボタン
 export function SignOutButton() {
   return (
     <form action={logout}>
