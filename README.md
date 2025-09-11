@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mimicopi
 
-## Getting Started
+A web application for music transcription (mimicopi), designed to provide a complete ear-training and transcription environment that works entirely on your smartphone.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Play and control YouTube videos
+- Virtual piano keyboard for note input and checking
+- ABC notation editor and sheet viewer
+- Data import/export (JSON)
+- Google authentication (sign in/out)
+- Fully responsive UI — optimized for smartphone use
+- All transcription workflow can be completed on mobile
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Simply access the app from your browser or smartphone:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**[https://mimicopi.vercel.app/](https://mimicopi.vercel.app/)**
 
-## Learn More
+No installation is required.  
+All features are available directly in your web browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Third-party Licenses
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License.  
+See `LICENSES-3rdparty.csv` for third-party library licenses.  
+Some libraries (e.g. Apache-2.0) may require additional NOTICE files, which are included if necessary.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Acknowledgements
 
-## Deploy on Vercel
+- [Next.js](https://nextjs.org/)
+- [abcjs](https://github.com/paulrosen/abcjs)
+- [smplr](https://github.com/danigb/smplr)
+- [react-player](https://github.com/cookpete/react-player)
+- [Radix UI](https://www.radix-ui.com/)
+- [lucide-react](https://github.com/lucide-icons/lucide)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT © 2025 B1ue-Te4
